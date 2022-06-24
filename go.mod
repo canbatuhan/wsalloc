@@ -1,4 +1,4 @@
-module workstation.pb.go
+module wsalloc
 
 go 1.17
 

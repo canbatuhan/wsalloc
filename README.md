@@ -1,4 +1,4 @@
-# wsalloc
+# workstation-grpc
 Do not forget that the codes in this repo are written just to practice GoLang, so there is nothing proposed in here!
 
 Imagine a mighty workstation that is being served to a group of client (academicians, engineers, students, etc.).

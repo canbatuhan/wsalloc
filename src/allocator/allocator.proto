@@ -1,6 +1,7 @@
 syntax = "proto3";
 option go_package = "./";
 
+package ws_allocator;
 
 service WorkStationService {
     rpc Connect (ConnectionReq) returns (ConnectionRes) {}
@@ -57,4 +58,3 @@ message ReleaseRes {
     int32 poll_duration = 1;
     bool response = 2;
 }
-
