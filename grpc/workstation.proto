@@ -1,0 +1,60 @@
+syntax = "proto3";
+option go_package = "./";
+
+
+service WorkStationService {
+    rpc Connect (ConnectionReq) returns (ConnectionRes) {}
+    rpc AllocateMachine (AllocReq) returns (AllocRes) {}
+    rpc ReleaseMachine (ReleaseReq) returns (ReleaseRes) {}
+}
+
+/* Connection Request - Response */
+
+message ConnectionReq {
+    string client_id = 1;
+    int32 priority = 2;
+}
+
+message ConnectionRes{
+    bool response = 1;
+}
+
+
+/* Allocation Request - Response */ 
+
+message AllocReq {
+    string client_id = 1;
+
+    message CpuReq {
+        int32 n_cores = 2;
+    }
+
+    message GpuReq {
+        int32 n_cores = 3;
+        int32 mem_size = 4;
+    }
+
+    message MemReq {
+        int32 mem_size = 5;
+    }
+}
+
+message AllocRes {
+    int32 process_duration = 1;
+    int32 poll_duration = 2;
+    bool response = 3;
+}
+
+
+/* Release Request - Response */
+
+message ReleaseReq {
+    string client_id = 1;
+    bool process_done = 2;
+}
+
+message ReleaseRes {
+    int32 poll_duration = 1;
+    bool response = 2;
+}
+
